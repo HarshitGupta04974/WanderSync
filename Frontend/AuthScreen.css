@@ -1,0 +1,105 @@
+/* --- Animated Gradient Background --- */
+.auth-wrapper {
+    background: linear-gradient(-45deg, #0d6efd, #6610f2, #0dcaf0, #d63384);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Main Card Layout --- */
+.auth-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 900px;
+    min-height: 550px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+/* --- Brand Panel (Left Side) --- */
+.auth-brand-panel {
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.9), rgba(102, 16, 242, 0.9));
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-title {
+    letter-spacing: -1px;
+}
+
+.brand-graphic {
+    transform: rotate(-15deg);
+    transition: transform 0.5s ease;
+}
+
+.auth-card:hover .brand-graphic {
+    transform: rotate(0deg) scale(1.1);
+}
+
+/* --- Form Panel (Right Side) --- */
+.auth-form-panel {
+    flex: 1.2;
+}
+
+/* Form Inputs */
+.form-floating > .form-control {
+    transition: all 0.2s ease;
+}
+
+.form-floating > .form-control:focus {
+    background-color: #fff !important;
+    border: 2px solid #0d6efd !important;
+    box-shadow: 0 0 15px rgba(13, 110, 253, 0.1);
+}
+
+/* --- Form Entrance Animation (Triggers on Toggle) --- */
+.slide-in {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Buttons --- */
+.auth-submit-btn {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+}
+
+.toggle-btn {
+    transition: color 0.2s ease;
+}
+
+.toggle-btn:hover {
+    color: #6610f2 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .auth-brand-panel {
+        display: none !important; /* Hide graphics on mobile for clean form */
+    }
+    .auth-card {
+        border-radius: 0;
+        min-height: 100vh;
+    }
+}

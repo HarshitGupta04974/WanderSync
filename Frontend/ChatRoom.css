@@ -1,0 +1,104 @@
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    height: 70vh;
+    min-height: 500px;
+    max-height: 800px;
+    background-color: #f8f9fa;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin: 0 auto;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Header */
+.chat-header {
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+}
+
+.chat-avatar {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+}
+
+/* Body */
+.chat-body {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230d6efd' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Message Bubbles */
+.message-wrapper {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.message-bubble {
+    max-width: 75%;
+    border-radius: 1rem;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.message-mine {
+    border-bottom-right-radius: 0.25rem;
+}
+
+.message-theirs {
+    border-bottom-left-radius: 0.25rem;
+}
+
+.message-content {
+    line-height: 1.4;
+}
+
+.message-timestamp {
+    font-size: 0.7rem;
+}
+
+/* Input Area */
+.send-btn {
+    width: 45px;
+    height: 45px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.send-btn:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3) !important;
+}
+
+.send-btn:disabled {
+    background-color: #e9ecef;
+    border-color: #e9ecef;
+    color: #adb5bd;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar for the chat body */
+.chat-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.chat-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
